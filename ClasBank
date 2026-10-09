@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+
+public class ClasBank {
+    private String name;
+    private double balance;
+    private ArrayList<String> transactions;
+
+    public ClasBank(String name, double balance) {
+        this.name = name;
+        this.balance = balance;
+        transactions = new ArrayList<>();
+
+        transactions.add("Saldo awal: Rp " + (int) balance);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        transactions.add("Deposit: Rp " + (int) amount);
+        System.out.println("[+] Deposit: Rp " + (int) amount);
+        getBalance();
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance && amount > 0) {
+            balance -= amount;
+            transactions.add("Withdraw: Rp " + (int) amount);
+            System.out.println("[-] Withdraw: Rp " + (int) amount);
+            getBalance();
+        } else {
+            System.out.println("[!] Penarikan Rp " + (int) amount + " gagal! Saldo tidak cukup.");
+        }
+    }
+
+    public void getBalance() {
+        System.out.println("    Balance: Rp " + (int) balance);
+    }
+
+    public void showTransactions() {
+        System.out.println("\n----------------------------------------");
+        System.out.println("       RIWAYAT TRANSAKSI: " + name);
+        System.out.println("----------------------------------------");
+        
+        int no = 1;
+        for (String transaction : transactions) {
+            System.out.println(" " + no + ". " + transaction);
+            no++;
+        }
+        System.out.println("----------------------------------------\n");
+    }
+}
