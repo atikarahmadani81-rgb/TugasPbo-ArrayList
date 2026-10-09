@@ -1,0 +1,39 @@
+public class ClasBankDemo {
+    public static void main(String[] args) {
+        System.out.println("========================================");
+        System.out.println("       WELCOME TO BANK  JAVA            ");
+        System.out.println("========================================\n");
+
+        ClasBank nasabah1 = new ClasBank("Tika", 100000);
+        ClasBank nasabah2 = new ClasBank("Namira", 250000);
+
+        //Transaksi Nasabah 1 (tika) 
+        System.out.println("=== Aktivitas Nasabah: " + nasabah1.getName() + " ===");
+        nasabah1.getBalance();
+        System.out.println();
+        
+        nasabah1.deposit(500000);
+        System.out.println();
+        
+        nasabah1.withdraw(150000);
+        nasabah1.showTransactions();
+
+        //Transaksi Nasabah 2 (namira)
+        System.out.println("=== Aktivitas Nasabah: " + nasabah2.getName() + " ===");
+        nasabah2.getBalance();
+        System.out.println();
+        
+        nasabah2.deposit(300000);
+        System.out.println();
+        
+        nasabah2.withdraw(600000); // penarikan gagal karena saldo kurang
+        System.out.println();
+        
+        nasabah2.withdraw(50000);
+        nasabah2.showTransactions();
+
+        System.out.println("========================================");
+        System.out.println("      TERIMA KASIH TELAH BERTRANSAKSI   ");
+        System.out.println("========================================");
+    }
+}
